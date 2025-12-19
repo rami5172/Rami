@@ -3,63 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سۆشیاڵ میدیاکانم </title>
+    <title>Rami Mohammed | Social Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                              url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTODe5EX0zt1ux_ffu9Mnz8IclT3mGIgUQCNy-MtUiRBA&s=10');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', 'Noto Sans Arabic', Tahoma, sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             color: white;
+            animation: pageFadeIn 1.5s ease-out;
         }
+
         .container {
             text-align: center;
-            width: 90%;
-            max-width: 400px;
+            width: 95%;
+            max-width: 420px;
+            padding: 30px 10px;
         }
+
+        .main-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: linear-gradient(90deg, #fff 0%, #555 25%, #fff 50%, #555 75%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 2s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .follow-text {
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            opacity: 0.5;
+            margin-bottom: 35px;
+        }
+
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
         .link-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            margin: 15px 0;
-            padding: 15px;
-            border-radius: 12px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 14px 22px;
+            border-radius: 50px;
             text-decoration: none;
             color: white;
-            display: block;
-            font-weight: bold;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            overflow: hidden; /* بۆ ئەوەی جوڵەی ڕەنگەکە لەناو چوارچێوەکە بێت */
             transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* دروستکردنی هێڵە سوڕاوەکە */
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            background: conic-gradient(transparent, transparent, transparent, var(--border-color));
+            transform: translate(-50%, -50%);
+            animation: rotate 3s linear infinite;
+            display: none; /* تەنها کاتێک دەردەکەوێت کە ماوسی دەچێتە سەر */
+        }
+
+        .link-card:hover::before {
+            display: block;
+        }
+
+        /* دروستکردنی ناوەوەی کارتەکە بۆ شاردنەوەی ناوەڕاستی ڕەنگە سوڕاوەکە */
+        .link-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 50px;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .link-text {
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 32px;
+            font-size: 1.05rem;
+            z-index: 2;
+        }
+
+        /* دیاریکردنی ڕەنگی سوڕاو بۆ هەر کارتێک */
+        .tiktok { --border-color: #ff0050; }
+        .snapchat { --border-color: #fffc00; }
+        .instagram { --border-color: #e1306c; }
+        .facebook { --border-color: #1877f2; }
+
         .link-card:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
-        .footer-text {
-            color: #000000;
-            font-weight: 500;
-            font-size: 14px;
-            margin-top: 60px;
-            direction: rtl;
-            opacity: 0.7;
+
+        .footer-section {
+            margin-top: 50px;
+        }
+
+        .kurdish-quote {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .designer-tag {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            opacity: 0.3;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Rami Mohammed </h2>
-    <p> Follow me </p>
+    <h1 class="main-title">Rami Mohammed</h1>
+    <div class="follow-text">FOLLOW ME</div>
 
-    <a href="https://www.tiktok.com/@rx.ramiii?_r=1&_t=ZS-92KVCnlFaRY" class="link-card">TikTok 🎵</a>
-    <a href="https://snapchat.com/t/pU6an2oT" class="link-card">Snapchat 👻</a>
-    <a href="https://www.instagram.com/rx.ramii?igsh=MTgwc3Q1Z3djcXJveg%3D%3D&utm_source=qr" class="link-card">Instagram 📸</a>
-    <a href="https://www.facebook.com/share/1AfKryYh4z/?mibextid=wwXIfr" class="link-card">Facebook 🔵</a>
+    <div class="links-wrapper">
+        <a href="https://www.tiktok.com/@rx.ramiii" class="link-card tiktok">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuJu4htpqrqU4_Yg4qoMqcl-kNT_4jLpGAiGPlxcvaow&s=10" class="brand-logo" alt="TikTok">
+            <span class="link-text">TikTok</span>
+        </a>
+        
+        <a href="https://snapchat.com/t/pU6an2oT" class="link-card snapchat">
+            <img src="https://i.pinimg.com/474x/6f/4f/82/6f4f82da303ab2247088f61703f9d14c.jpg" class="brand-logo" alt="Snapchat">
+            <span class="link-text">Snapchat</span>
+        </a>
+        
+        <a href="https://www.instagram.com/rx.ramii" class="link-card instagram">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1IbzdQdmceoJL_AxfrBUk2_pODFiCw9RFZyRuuvAl8w&s" class="brand-logo" alt="Instagram">
+            <span class="link-text">Instagram</span>
+        </a>
+        
+        <a href="https://www.facebook.com/share/1AfKryYh4z/" class="link-card facebook">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS75o4JKpuvcPb3Vf1ZY22blcloQVWTGLskFc1vLrfwEQ&s=10" class="brand-logo" alt="Facebook">
+            <span class="link-text">Facebook</span>
+        </a>
+    </div>
 
-    <p class="footer-text">سوپاس بۆ سەردانیکردنی وێبسایتەکەم</p>
+    <div class="footer-section">
+        <p class="kurdish-quote">خوات بەسە لەهەموو بارودۆخێکدا •</p>
+        <p class="designer-tag">• DESIGNED BY RAMI •</p>
+    </div>
 </div>
 
 </body>
