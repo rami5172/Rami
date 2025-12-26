@@ -7,169 +7,175 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background: #000;
-            margin: 0;
-            padding: 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                              url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTODe5EX0zt1ux_ffu9Mnz8IclT3mGIgUQCNy-MtUiRBA&s=10');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', 'Noto Sans Arabic', Tahoma, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Segoe UI', 'Noto Sans Arabic', Tahoma, sans-serif;
-            overflow-x: hidden;
+            margin: 0;
+            color: white;
         }
 
-        /* ئیفێکتی ڕووناکی پشتەوە بۆ هەستی لەگجەری */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 50%; left: 50%;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
-
-        .luxury-container {
-            width: 90%;
-            max-width: 340px;
-            padding: 35px 20px;
-            background: linear-gradient(145deg, rgba(15, 15, 15, 0.9), rgba(5, 5, 5, 1));
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 50px 100px rgba(0,0,0,1), inset 0 0 20px rgba(255,255,255,0.02);
+        .container {
             text-align: center;
-            position: relative;
+            width: 88%;
+            max-width: 340px;
+            padding: 15px;
         }
 
-        /* چوارچێوەی سەیارەکە وەک شاشەی VIP */
-        .video-box {
+        .vip-glass-card {
             width: 100%;
-            height: 190px;
+            height: 185px;
             border-radius: 30px;
-            overflow: hidden;
             position: relative;
             margin-bottom: 25px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxJ2v2HUJ_5k1ET-8CNE3NOEZ6KrXtfp_-QlWLASUUwg&s=10'); 
+            background-size: cover; 
+            background-position: center;
         }
 
-        .video-box iframe {
+        .vip-glass-card::before {
+            content: '';
             position: absolute;
-            top: -150px; /* سەیارەکە لە ناوەڕاستدایە */
-            left: 50%;
-            transform: translateX(-50%) scale(1.9);
-            width: 100%;
-            height: 550px;
-            border: none;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.05); 
+            backdrop-filter: blur(1px);
+            z-index: 1;
+        }
+
+        .card-top-left {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 0.7rem;
+            color: #fff;
+            z-index: 5;
+            direction: ltr;
+        }
+
+        .center-text {
+            position: relative;
+            z-index: 5;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* ستایل بۆ نووسینی Photo by بە شێوەی شووشەیی کاڵ */
+        .card-bottom-right {
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            font-size: 0.45rem;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(2px);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
         }
 
         .main-title {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            margin-bottom: 30px;
-            background: linear-gradient(to bottom, #fff 20%, #888 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            color: #fff;
             letter-spacing: 1px;
-            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .follow-text {
+            font-size: 0.6rem;
+            letter-spacing: 5px;
+            opacity: 0.4;
+            margin-bottom: 30px;
         }
 
         .links-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
         }
 
-        /* کارتەکان بە ستایلی مۆدێرنی لەگجەری */
         .link-card {
             background: rgba(255, 255, 255, 0.03);
-            padding: 15px 20px;
-            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            padding: 12px 20px;
+            border-radius: 50px;
             text-decoration: none;
-            color: #eee;
+            color: white;
             font-weight: 600;
             display: flex;
             align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: 0.4s ease;
             position: relative;
         }
 
+        .tiktok { border: 1px solid rgba(0, 242, 234, 0.3); box-shadow: 0 0 15px rgba(0, 242, 234, 0.15); }
+        .snapchat { border: 1px solid rgba(255, 252, 0, 0.3); box-shadow: 0 0 15px rgba(255, 252, 0, 0.15); }
+        .instagram { border: 1px solid rgba(225, 48, 108, 0.3); box-shadow: 0 0 15px rgba(225, 48, 108, 0.15); }
+        .facebook { border: 1px solid rgba(24, 119, 242, 0.3); box-shadow: 0 0 15px rgba(24, 119, 242, 0.15); }
+
         .link-card:hover {
+            transform: translateY(-3px);
             background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
         }
 
-        /* لایتی ڕەنگاوڕەنگ کاتی دەست لێدان */
-        .tiktok:hover { box-shadow: 0 0 25px rgba(0, 242, 234, 0.3); border-color: #00f2ea; }
-        .snapchat:hover { box-shadow: 0 0 25px rgba(255, 252, 0, 0.3); border-color: #fffc00; }
-        .instagram:hover { box-shadow: 0 0 25px rgba(225, 48, 108, 0.3); border-color: #e1306c; }
-        .facebook:hover { box-shadow: 0 0 25px rgba(24, 119, 242, 0.3); border-color: #1877f2; }
+        .tiktok:hover { box-shadow: 0 0 25px rgba(0, 242, 234, 0.4); border-color: #00f2ea; }
+        .snapchat:hover { box-shadow: 0 0 25px rgba(255, 252, 0, 0.4); border-color: #fffc00; }
+        .instagram:hover { box-shadow: 0 0 25px rgba(225, 48, 108, 0.4); border-color: #e1306c; }
+        .facebook:hover { box-shadow: 0 0 25px rgba(24, 119, 242, 0.4); border-color: #1877f2; }
 
-        .brand-logo {
-            width: 30px;
-            height: 30px;
-            border-radius: 10px;
-            z-index: 1;
-        }
+        .brand-logo { width: 26px; height: 26px; border-radius: 50%; }
+        .link-text { flex-grow: 1; text-align: center; margin-right: 26px; font-size: 0.95rem; letter-spacing: 1px; }
 
-        .link-text {
-            flex-grow: 1;
-            text-align: center;
-            margin-right: 30px;
-            font-size: 1.05rem;
-            letter-spacing: 1.5px;
-        }
-
-        .footer {
-            margin-top: 45px;
-        }
-
-        .quote {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .designer {
-            font-size: 0.6rem;
-            letter-spacing: 4px;
-            color: #444;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
+        .footer { margin-top: 40px; }
+        .quote { font-size: 0.8rem; opacity: 0.6; margin-bottom: 5px; }
+        .designer { font-size: 0.5rem; letter-spacing: 2px; opacity: 0.3; }
     </style>
 </head>
 <body>
 
-<div class="luxury-container">
-    <div class="video-box">
-        <iframe src="https://www.instagram.com/reel/DStUJh3AjZ0/embed/?autoplay=1&mute=1" frameborder="0" scrolling="no" allow="autoplay"></iframe>
-    </div>
+<div class="container">
+    <a href="https://www.instagram.com/reel/DStUJh3AjZ0/" class="vip-glass-card">
+        <div class="card-top-left">🫀 :)</div>
+        <div class="center-text">WATCH REEL</div>
+        <div class="card-bottom-right">Photo by tishk.ghafar</div>
+    </a>
 
     <h1 class="main-title">Rami Mohammed</h1>
+    <div class="follow-text">FOLLOW ME</div>
 
     <div class="links-wrapper">
         <a href="https://www.tiktok.com/@rx.ramiii" class="link-card tiktok">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuJu4htpqrqU4_Yg4qoMqcl-kNT_4jLpGAiGPlxcvaow&s=10" class="brand-logo">
             <span class="link-text">TIKTOK</span>
         </a>
-        
         <a href="https://snapchat.com/t/pU6an2oT" class="link-card snapchat">
             <img src="https://i.pinimg.com/474x/6f/4f/82/6f4f82da303ab2247088f61703f9d14c.jpg" class="brand-logo">
             <span class="link-text">SNAPCHAT</span>
         </a>
-        
         <a href="https://www.instagram.com/rx.ramii" class="link-card instagram">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1IbzdQdmceoJL_AxfrBUk2_pODFiCw9RFZyRuuvAl8w&s" class="brand-logo">
             <span class="link-text">INSTAGRAM</span>
         </a>
-        
         <a href="https://www.facebook.com/share/1AfKryYh4z/" class="link-card facebook">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS75o4JKpuvcPb3Vf1ZY22blcloQVWTGLskFc1vLrfwEQ&s=10" class="brand-logo">
             <span class="link-text">FACEBOOK</span>
